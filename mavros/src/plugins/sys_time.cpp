@@ -291,6 +291,9 @@ private:
 
 	void add_timesync_observation(int64_t offset_ns, uint64_t observation_time)
 	{
+		// don't do time sync
+		return;
+
 		int64_t dt = time_offset_ns - offset_ns;
 
 		if (std::abs(dt) > 10000000) {		// 10 millisecond skew
